@@ -16,11 +16,13 @@ document
 let emailAddress = '';
 // Fetches a payment intent and captures the client secret
 async function initialize() {
-  const response = await fetch("/.netlify/functions/handle-payments", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ items }),
-  });
+  const response = await fetch('https://glittering-melomakarona-da8a4d.netlify.app/.netlify/functions/handle-payments', {
+	  method: 'POST',
+	  headers: {
+	    'Content-Type': 'application/json',
+	  },
+	  credentials: 'include',
+	});
   const { clientSecret } = await response.json();
 
   const appearance = {
