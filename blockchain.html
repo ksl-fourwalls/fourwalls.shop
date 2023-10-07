@@ -10,6 +10,10 @@
   #reviews-btn {
 	  margin-left: 5px;
   }
+  #payment-element {
+    height: 1000px;
+    width: 1000px;
+  }
 
   .embed-responsive {
 	  margin-top: 40px;
@@ -100,10 +104,31 @@
     </div>
   </main>
 
+  <div id="payment-element"></div>
   <script src="js/jquery-3.5.1.slim.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/script.js"></script>
   <script src="https://js.stripe.com/v3/"></script>
+  <script src='http://localhost:3000/.netlify/functions/handle-payments?clientSecret'></script>
+  <script>
+
+	  const stripe = Stripe("pk_live_51NdzbTSJwR4fxslbXF1aII5qKPo0I6lXYcuFSIMZZdabtRM8CmrIxFKnh7Vdv2R5VCQ1383q1rzgGlO9GVXyb2YL00ttvLjNcW", {
+		  apiVersion: '2020-08-27',
+	  });
+
+
+
+	  const appearance = {
+		  theme: 'flat',
+		  variables: { colorPrimaryText: '#262626' }
+	  };
+	  const options = { /* options */ };
+	  const elements = stripe.elements({ "pi_3Nw99vSJwR4fxslb0hz333AX_secret_7xViQdO6PA3J1tObbc6a2JywA", appearance });
+	  const paymentElement = elements.create('payment', options);
+	  paymentElement.mount('#payment-element');
+
+  </script>
+
 </body>
 </html>
 
