@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Blockchain Course</title>
+  <title>Machine Learning Course</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="icon" href="images/Bitcoin.svg">
+  <link rel="icon" href="images/machine-learning.png">
+
+  <link rel="stylesheet" href="css/checkout.css" />
+    <script src="https://js.stripe.com/v3/"></script>
+      <script src="js/checkout.js" defer></script>
 <!-- https://github.com/stripe-samples/accept-a-payment/blob/main/custom-payment-flow/client/html/card.js -->
   <style>
   #reviews-btn {
-	  margin-left: 5px;
-  }
-  #payment-element {
-    height: 1000px;
-    width: 1000px;
+	  margin-top: 10px;
   }
 
   .embed-responsive {
@@ -27,7 +27,7 @@
 <body>
   <header class="bg-dark text-white py-4">
     <div class="container">
-      <h1 class="display-4">Blockchain Course</h1>
+      <h1 class="display-4">Machine Learning Course</h1>
     </div>
   </header>
 
@@ -35,27 +35,46 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
-          <h2>Course Details</h2>
-          <p>
-            Learn the fundamentals of blockchain technology and its applications in this comprehensive course. 
-            Develop a solid understanding of decentralized networks, cryptography, smart contracts, and more.
-          </p>
-          <p>Course Duration: 4 weeks</p>
-          <p>Price: &#8377;99</p>
-          <button id="enroll-btn" class="btn btn-primary">Enroll Now</button>
-          <button id="reviews-btn" class="btn btn-primary">Reviews</button>
-
-          <div class="embed-responsive embed-responsive-16by9">
-            <video class="embed-responsive-item" controls>
-              <source src="preview-video.mp4" type="video/mp4">
+		<section class="card p-4 hidden">
+            <video class="embed-responsive-item" controls autoplay>
+              <source src="https://drive.google.com/uc?export=download&id=1Q-3YF4pYdOtS6ugJio2imoiNd2dDMqVM" type="video/mp4">
               Your browser does not support the video tag.
             </video>
+	    <!--
+          <div class="embed-responsive embed-responsive-16by9">
           </div>
+	    -->
+          <h2 style="padding-top: 0.8em">Course Details</h2>
+          <p>
+	    Unlock the power of Azure Machine Learning with our comprehensive course designed for both beginners and experienced data enthusiasts. This hands-on program provides in-depth knowledge and practical skills.
+          </p>
+          <p>Course Duration: 4 weeks</p>
+          <p>Price: &#8377;150</p>
+
+          <button id="enroll-btn" class="btn btn-primary">Enroll Now</button>
+          <button id="reviews-btn" class="btn btn-primary">Reviews</button>
+		</section>
         </div>
 
         <div class="col-lg-6">
-          <section id="payment-form" class="card p-4 hidden">
-            <h2>Payment Details</h2>
+          <section  class="card p-4 hidden">
+
+    <h2>Payment Details</h2>
+    <form id="payment-form">
+      <div id="link-authentication-element">
+        <!--Stripe.js injects the Link Authentication Element-->
+      </div>
+      <div id="payment-element">
+        <!--Stripe.js injects the Payment Element-->
+      </div>
+      <button id="submit" class="btn btn-primary mt-3">
+        <div class="spinner sphidden" id="spinner"></div>
+        <span id="button-text">Pay now</span>
+      </button>
+      <div id="payment-message" class="sphidden"></div>
+    </form>
+
+	    <!--
             <form id="payment-form">
               <div class="form-group">
                 <label for="name">Name:</label>
@@ -83,8 +102,9 @@
                 </div>
               </div>
 
-              <button type="submit" class="btn btn-primary mt-3">Pay Now</button>
-            </form>
+              <button type="submit">Pay Now</button>
+	    </form> 
+	    -->
           </section>
 
           <section id="success-message" class="card p-4 hidden">
@@ -96,39 +116,16 @@
           </ul>
 
           </section>
-	  <!-- 
-	  -->
         </div>
       </div>
 
     </div>
   </main>
 
-  <div id="payment-element"></div>
   <script src="js/jquery-3.5.1.slim.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/script.js"></script>
   <script src="https://js.stripe.com/v3/"></script>
-  <script src='http://localhost:3000/.netlify/functions/handle-payments?clientSecret'></script>
-  <script>
-
-	  const stripe = Stripe("pk_live_51NdzbTSJwR4fxslbXF1aII5qKPo0I6lXYcuFSIMZZdabtRM8CmrIxFKnh7Vdv2R5VCQ1383q1rzgGlO9GVXyb2YL00ttvLjNcW", {
-		  apiVersion: '2020-08-27',
-	  });
-
-
-
-	  const appearance = {
-		  theme: 'flat',
-		  variables: { colorPrimaryText: '#262626' }
-	  };
-	  const options = { /* options */ };
-	  const elements = stripe.elements({ "pi_3Nw99vSJwR4fxslb0hz333AX_secret_7xViQdO6PA3J1tObbc6a2JywA", appearance });
-	  const paymentElement = elements.create('payment', options);
-	  paymentElement.mount('#payment-element');
-
-  </script>
-
 </body>
 </html>
 

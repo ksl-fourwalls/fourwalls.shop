@@ -3,10 +3,15 @@ document.addEventListener('DOMContentLoaded', function() {
   const courseDetails = document.getElementById('course-details');
   const paymentForm = document.getElementById('payment-form');
   const successMessage = document.getElementById('success-message');
+  const reviewBtn = document.getElementById('reviews-btn');
 
   enrollBtn.addEventListener('click', function() {
     courseDetails.classList.add('hidden');
     paymentForm.classList.remove('hidden');
+  });
+
+  reviewBtn.addEventListener('click', function() {
+	  document.location='reviews.html';
   });
 
   paymentForm.addEventListener('submit', function(event) {
