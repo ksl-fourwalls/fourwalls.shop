@@ -6,14 +6,14 @@ document.addEventListener('DOMContentLoaded', function() {
   const reviewBtn = document.getElementById('reviews-btn');
 
   enrollBtn.addEventListener('click', function() {
-    courseDetails.classList.add('hidden');
-    paymentForm.classList.remove('hidden');
+
   });
 
   reviewBtn.addEventListener('click', function() {
-	  document.location='reviews.html';
+	  document.location='/reviews.html';
   });
 
+	/*
   paymentForm.addEventListener('submit', function(event) {
     event.preventDefault();
     // Here, you can handle the payment processing logic
@@ -21,4 +21,5 @@ document.addEventListener('DOMContentLoaded', function() {
     paymentForm.classList.add('hidden');
     successMessage.classList.remove('hidden');
   });
+  */
 });
