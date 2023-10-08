@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   reviewBtn.addEventListener('click', function() {
-	  document.location='/reviews.html';
+	  document.location='reviews.html';
   });
 
 	/*
