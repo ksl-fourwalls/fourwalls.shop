@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const reviewBtn = document.getElementById('reviews-btn');
 
   enrollBtn.addEventListener('click', function() {
-	  paymentForm.scrollIntoView({behavior: 'smooth'}, true);
+	  document.querySelector(".col-lg-6").scrollIntoView({behavior: 'smooth'}, true);
   });
 
   reviewBtn.addEventListener('click', function() {
